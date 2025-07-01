@@ -1,16 +1,24 @@
-## Hi there 👋
+# Space Explorer Portfolio
 
-<!--
-**Gsauce-Krayst/Gsauce-Krayst** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+![Portfolio Screenshot](screenshot.png)
 
-Here are some ideas to get you started:
+A cosmic-themed portfolio website with animated elements and interactive project cards. This project showcases a unique space explorer theme with a floating helmet, twinkling stars, and responsive design.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Features
+
+- **Animated Cosmic Helmet**: Floating 3D helmet with glass effect
+- **Twinkling Star Background**: Dynamic starfield with random twinkling
+- **Interactive Project Cards**: Hover effects and animations
+- **Responsive Design**: Adapts to mobile and desktop screens
+- **Project Statistics**: Visually appealing facts section
+- **Modern UI**: Glassmorphism and gradient effects
+
+## Technologies Used
+
+- HTML5
+- CSS3 (with animations and gradients)
+- JavaScript (for starfield generation)
+- Font Awesome Icons
+- Google Fonts (Orbitron)
+
+## Project Structure
