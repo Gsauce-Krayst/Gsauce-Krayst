@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Aquarium with Hunger System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-fish"></i> Interactive Aquarium</h1>
+            <p class="subtitle">Create your own underwater world! Feed your fish to keep them happy and healthy. Starving fish will die!</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="aquarium-container">
+                <div id="aquarium"></div>
+                <div class="status-panel">
+                    <h3><i class="fas fa-chart-bar"></i> Aquarium Status</h3>
+                    <div class="status-item">
+                        <span class="status-label">Fish Count:</span>
+                        <span class="status-value" id="fish-count">0</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Hungry Fish:</span>
+                        <span class="status-value" id="hungry-count">0</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Starving Fish:</span>
+                        <span class="status-value" id="starving-count">0</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Food Level:</span>
+                        <span class="status-value" id="food-level">100%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <h2><i class="fas fa-fish"></i> Add Fish</h2>
+                    <p>Add different types of fish to your aquarium</p>
+                    <div class="button-group">
+                        <button id="addClownfish">
+                            <i class="fas fa-fish"></i> Add Clownfish
+                        </button>
+                        <button id="addAngelfish">
+                            <i class="fas fa-fish"></i> Add Angelfish
+                        </button>
+                        <button id="addGoldfish">
+                            <i class="fas fa-fish"></i> Add Goldfish
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <h2><i class="fas fa-leaf"></i> Environment</h2>
+                    <p>Customize your aquarium environment</p>
+                    <div class="slider-container">
+                        <label for="bubble-density">Bubble Density: <span id="bubble-value">5</span></label>
+                        <input type="range" id="bubble-density" min="1" max="20" value="5">
+                    </div>
+                    <div class="button-group">
+                        <button id="add-plant">
+                            <i class="fas fa-seedling"></i> Add Plant
+                        </button>
+                        <button id="add-rock">
+                            <i class="fas fa-mountain"></i> Add Rock
+                        </button>
+                        <button id="clear-aquarium">
+                            <i class="fas fa-trash"></i> Clear Aquarium
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <h2><i class="fas fa-cogs"></i> Fish Behavior</h2>
+                    <p>Control how your fish swim</p>
+                    <div class="slider-container">
+                        <label for="fish-speed">Swim Speed: <span id="speed-value">5</span></label>
+                        <input type="range" id="fish-speed" min="1" max="10" value="5">
+                    </div>
+                    <div class="button-group">
+                        <button id="feed-fish">
+                            <i class="fas fa-utensils"></i> Feed Fish
+                        </button>
+                        <button id="toggle-movement">
+                            <i class="fas fa-pause"></i> Pause Movement
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <h2><i class="fas fa-heart"></i> Fish Health</h2>
+                    <p>Monitor and manage fish hunger</p>
+                    <div class="button-group">
+                        <button id="auto-feed" disabled>
+                            <i class="fas fa-robot"></i> Auto Feed: OFF
+                        </button>
+                        <button id="heal-fish">
+                            <i class="fas fa-heartbeat"></i> Heal Fish
+                        </button>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Hunger Rate:</span>
+                        <span class="status-value" id="hunger-rate">Medium</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="code-section">
+            <h2><i class="fas fa-code"></i> Aquarium Code</h2>
+            <div class="code-container">
+                <div class="code-block">
+                    <div class="code-header">
+                        <h3>HTML</h3>
+                        <button class="copy-btn">Copy</button>
+                    </div>
+                    <pre><code>&lt;div id="aquarium"&gt;
+  &lt;!-- Fish elements with hunger bars --&gt;
+  &lt;div class="fish" data-hunger="85"&gt;
+    &lt;div class="fish-emoji"&gt;🐠&lt;/div&gt;
+    &lt;div class="hunger-bar"&gt;
+      &lt;div class="hunger-level" style="width: 85%;"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- Environment elements --&gt;
+  &lt;div class="plant"&gt;🌿&lt;/div&gt;
+  
+  &lt;!-- Status panel --&gt;
+  &lt;div class="status-panel"&gt;
+    &lt;!-- Status items --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <h3>CSS</h3>
+                        <button class="copy-btn">Copy</button>
+                    </div>
+                    <pre><code>.fish {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hunger-bar {
+  width: 50px;
+  height: 6px;
+  background: #333;
+  border-radius: 3px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+.hunger-level {
+  height: 100%;
+  background: #4caf50;
+  transition: width 0.5s ease;
+}
+
+/* Hunger levels */
+.hunger-low .hunger-level { background: #ff9800; }
+.hunger-critical .hunger-level { background: #f44336; }
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 0; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}</code></pre>
+                </div>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <h3>JavaScript</h3>
+                        <button class="copy-btn">Copy</button>
+                    </div>
+                    <pre><code>// Hunger system
+function updateHunger() {
+  document.querySelectorAll('.fish').forEach(fish => {
+    let hunger = parseInt(fish.dataset.hunger);
+    hunger = Math.max(0, hunger - 2);
+    fish.dataset.hunger = hunger;
+    
+    const hungerBar = fish.querySelector('.hunger-level');
+    hungerBar.style.width = `${hunger}%`;
+    
+    // Update hunger color
+    hungerBar.parentElement.className = 'hunger-bar';
+    if (hunger < 30) hungerBar.parentElement.classList.add('hunger-critical');
+    else if (hunger < 60) hungerBar.parentElement.classList.add('hunger-low');
+    
+    // Fish dies if hunger reaches 0
+    if (hunger === 0 && !fish.classList.contains('dead')) {
+      fish.classList.add('dead');
+      fish.style.animation = 'dead 2s forwards';
+      setTimeout(() => fish.remove(), 2000);
+    }
+  });
+  
+  updateStatusPanel();
+}
+
+// Feed fish function
+function feedFish() {
+  document.querySelectorAll('.fish').forEach(fish => {
+    if (!fish.classList.contains('dead')) {
+      let hunger = parseInt(fish.dataset.hunger);
+      hunger = Math.min(100, hunger + 30);
+      fish.dataset.hunger = hunger;
+      
+      const hungerBar = fish.querySelector('.hunger-level');
+      hungerBar.style.width = `${hunger}%`;
+      
+      // Animate fish when feeding
+      fish.style.animation = 'wiggle 0.5s';
+      setTimeout(() => fish.style.animation = '', 500);
+    }
+  });
+  
+  // Add food particles
+  for (let i = 0; i < 5; i++) {
+    createFoodParticle();
+  }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Interactive Aquarium Simulation | Created with HTML, CSS, and JavaScript</p>
+            <div class="copyright">
+                <p>&copy; 2025 Aquarium Simulator. All rights reserved.</p>
+                <p>This interactive aquarium simulation is protected by copyright law. Unauthorized reproduction or distribution is prohibited.</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

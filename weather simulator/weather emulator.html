@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Weather Simulation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-cloud-sun"></i> Enhanced Weather Simulation</h1>
+            <p class="subtitle">Realistic visualization with houses, people, and changing weather</p>
+        </header>
+        
+        <div class="layout-controls">
+            <button class="layout-btn active" id="defaultLayout">
+                <i class="fas fa-th"></i> Default Layout
+            </button>
+            <button class="layout-btn" id="focusCanvas">
+                <i class="fas fa-expand"></i> Focus Canvas
+            </button>
+            <button class="layout-btn" id="verticalLayout">
+                <i class="fas fa-arrows-alt-v"></i> Vertical Layout
+            </button>
+        </div>
+        
+        <div class="simulation-container">
+            <div class="canvas-container">
+                <canvas id="weatherCanvas"></canvas>
+            </div>
+            
+            <div class="controls-panel">
+                <div class="control-group">
+                    <h3><i class="fas fa-play-circle"></i> Simulation Controls</h3>
+                    <div class="btn-group">
+                        <button id="playPause">
+                            <i class="fas fa-pause"></i> Pause
+                        </button>
+                        <button id="changeWeather">
+                            <i class="fas fa-cloud-rain"></i> Change Weather
+                        </button>
+                        <button id="changeSeason">
+                            <i class="fas fa-snowflake"></i> Change Season
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <h3><i class="fas fa-sliders-h"></i> Speed Controls</h3>
+                    <div class="slider-container">
+                        <label for="timeSpeed">Time Speed:</label>
+                        <input type="range" id="timeSpeed" min="0.1" max="1" step="0.1" value="0.3">
+                    </div>
+                    <div class="slider-container">
+                        <label for="cloudSpeed">Cloud Speed:</label>
+                        <input type="range" id="cloudSpeed" min="0.1" max="2" step="0.1" value="1">
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <h3><i class="fas fa-sun"></i> Display Options</h3>
+                    <div class="slider-container">
+                        <label for="canvasSize">Canvas Size:</label>
+                        <input type="range" id="canvasSize" min="0.8" max="1.2" step="0.1" value="1">
+                    </div>
+                    <div class="slider-container">
+                        <label for="brightness">Brightness:</label>
+                        <input type="range" id="brightness" min="0.8" max="1.2" step="0.05" value="1">
+                    </div>
+                </div>
+                
+                <div class="info-display">
+                    <div class="info-card">
+                        <div class="info-label">Time of Day</div>
+                        <div class="info-value" id="timeDisplay">06:00 AM</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Weather</div>
+                        <div class="info-value" id="weatherDisplay">Clear</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Temperature</div>
+                        <div class="info-value" id="temperatureDisplay">22°C</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Season</div>
+                        <div class="info-value" id="seasonDisplay">Summer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

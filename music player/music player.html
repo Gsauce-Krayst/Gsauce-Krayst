@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Music Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="music style.css">
+</head>
+<body>
+    <!-- Solar System Background -->
+    <div class="solar-system">
+        <div class="sun"></div>
+        <div class="orbit mercury-orbit"><div class="planet mercury"></div></div>
+        <div class="orbit venus-orbit"><div class="planet venus"></div></div>
+        <div class="orbit earth-orbit"><div class="planet earth"></div></div>
+        <div class="orbit mars-orbit"><div class="planet mars"></div></div>
+        <div class="orbit jupiter-orbit"><div class="planet jupiter"></div></div>
+        <div class="stars"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <header>
+            <h1>Cosmic Music Player</h1>
+            <p class="tagline">Your interstellar music journey</p>
+        </header>
+
+        <div class="player-section">
+            <!-- Player -->
+            <div class="player-container">
+                <div class="now-playing">
+                    <div class="album-art">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="song-info">
+                        <h2 class="song-title">Stellar Echoes</h2>
+                        <p class="song-artist">Nebula Orchestra</p>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progress-bar"></div>
+                        </div>
+                        <div class="progress-time">
+                            <span id="current-time">0:00</span>
+                            <span id="duration">3:35</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button class="control-btn" id="prev-btn"><i class="fas fa-step-backward"></i></button>
+                    <button class="control-btn play-btn" id="play-btn"><i class="fas fa-play"></i></button>
+                    <button class="control-btn" id="next-btn"><i class="fas fa-step-forward"></i></button>
+                </div>
+
+                <div class="volume-container">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="80">
+                </div>
+            </div>
+
+            <!-- Playlist -->
+            <div class="playlist-container">
+                <div class="playlist-header">
+                    <h2>Your Playlist</h2>
+                    <button class="add-music-btn" id="add-music-btn">
+                        <i class="fas fa-plus"></i> Add Music
+                    </button>
+                </div>
+
+                <div class="playlist" id="playlist">
+                    <!-- Playlist items will be added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Music Modal -->
+    <div class="modal" id="add-music-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Music</h2>
+                <button class="close-modal" id="close-modal">&times;</button>
+            </div>
+            <form id="add-music-form">
+                <div class="form-group">
+                    <label for="song-title">Song Title</label>
+                    <input type="text" id="song-title" placeholder="Enter song title" required>
+                </div>
+                <div class="form-group">
+                    <label for="song-artist">Artist</label>
+                    <input type="text" id="song-artist" placeholder="Enter artist name" required>
+                </div>
+                <div class="form-group">
+                    <label for="audio-file">Audio File</label>
+                    <input type="file" id="audio-file" accept="audio/*" required>
+                </div>
+                <button type="submit" class="add-song-btn" id="add-song-btn">Add to Playlist</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Screen Size Indicator -->
+    <div class="screen-size" id="screen-size"></div>
+
+    <script src="music script.js" defer></script>
+</body>
+</html>
